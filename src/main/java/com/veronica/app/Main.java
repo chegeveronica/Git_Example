@@ -1,6 +1,10 @@
 package com.veronica.app;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Main {
+
     public static void main(String[] args) {
         // Paths
         String xhtmlFilePath = "src/main/resources/templates/template.xhtml";
@@ -11,8 +15,7 @@ public class Main {
         try {
             pdfGenerator.generatePdfFromXhtmlFile(xhtmlFilePath, outputPdfPath);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Failed to generate PDF: " + e.getMessage());
+            log.info("Failed to generate PDF: " + e.getMessage());
         }
     }
 }
